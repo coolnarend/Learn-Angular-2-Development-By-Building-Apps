@@ -1,0 +1,15 @@
+.panel-default {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px;
+}
+.panel-heading {
+    border-bottom: 1px dashed #eee;
+    margin-bottom: 10px;
+}
+.img-thumbnail {
+    max-height: 150px;
+}
+.list-group {
+    margin-top: 10px;
+}

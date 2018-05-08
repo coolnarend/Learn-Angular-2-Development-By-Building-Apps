@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-12">
+    <form>
+        <hr>
+        <div class="form-group">
+          <input [(ngModel)]="username" name="username" (keyup.enter)="searchUser()" type="text" placeholder="Enter Github Username" class="form-control" />        
+        </div>
+    </form>
+  </div>
+
+</div>
+
+<div *ngIf="userprop">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        {{userprop.name}}
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+            <img src="{{userprop.avatar_url}}" alt="{{userprop.name}}" class="img-thumbnail">
+            <a href="{{userprop.html_url}}" target="_blank" class="btn btn-default btn-block">View Profile</a>
+        </div>
+        <div class="col-md-9">
+            <div class="stats">
+              <span class="badge badge-light">Public Repos: {{userprop.public_repos}}</span>
+              <span class="badge badge-primary">Public Gists: {{userprop.public_gists}}</span>
+              <span class="badge badge-success">Followers: {{userprop.followers}}</span>
+              <span class="badge badge-info">Following: {{userprop.following}}</span>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Username: </strong>{{userprop.login}}</li>
+              <li class="list-group-item"><strong>Location: </strong>{{userprop.location}}</li>
+              <li class="list-group-item"><strong>Email: </strong>{{userprop.email}}</li>
+              <li class="list-group-item"><strong>Blog: </strong>{{userprop.blog}}</li>
+              <li class="list-group-item"><strong>Member Since: </strong>{{userprop.created_at}}</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        User Repos
+      </h3>
+    </div>
+    <div class="panel-body">
+      
+      <ul class="list-group">
+          <li class="list-group-item"  *ngFor="let repo of userrepos">
+            <div class="row">
+              <div class="col-md-9">
+                <h4>
+                  <a target="_blank" href="{{repo.html_url}}">{{repo.name}}</a>  
+                </h4>
+                <p>
+                  {{repo.description}}
+                </p>
+              </div>
+              <div class="col-md-3">
+                <span class="badge badge-light">Watchers: {{repo.watchers}}</span>
+                <span class="badge badge-primary">Forks: {{repo.forks}}</span>
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
